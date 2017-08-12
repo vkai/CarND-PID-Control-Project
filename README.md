@@ -14,18 +14,21 @@ Self-Driving Car Engineer Nanodegree Program
 The P componenent of the controller uses a value proportional to the cross-track error (CTE). This value causes the overall controller to oscillate around the target CTE. A high P coefficient causes higher oscillations, while a low P coefficient causes slower oscillations. The high oscillations matched with a high enough speed causes the vehicle to overshoot off the track quickly. The slower oscillations cause the vehicle to react too slowly to sharper turns, also causing the vehicle to veer off the track. 
 
 **P: 0.1, I: 0, D: 0**
+
 ![P 0.1, I 0, D 0][p0.1_i0_d0]
 
 ### I - Integral Component
 The I component takes into account the total error of the controller. This accumulates the previous errors and contributes to the control signal when the total error is significant. This can correct for a continuous drift from the target error by summing the errors built up and adjusting the signal when significant enough. 
 
 **P: 0.1, I: 0.0001, D: 1.0**
+
 ![P 0.1, I 0.0001, D 1.0][p0.1_i0.0001_d1.0]
 
 ### D - Differential Component
 The D component represents a differential of the error on the controller. This effectively takes into account the change in error over a window of readings. A large change in error in either direction warrants a large adjustment in the control signal. This manifests itself in the vehicle on sharper turns, where the P component is insufficiently responsive to the changing turn angle. The D component provides the needed boost to correct the steering angle.
 
 **P: 0.1, I: 0, D: 1.0**
+
 ![P 0.1, I 0, D 1.0][p0.1_i0_d1.0]
 
 ### Final Coefficients
